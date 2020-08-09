@@ -1,0 +1,9 @@
+
+
+.outBox{
+    width:10px;
+    height:200px;
+    overflow-y:auto;
+    border: 1px solid black;
+    font-size: 30px;
+}

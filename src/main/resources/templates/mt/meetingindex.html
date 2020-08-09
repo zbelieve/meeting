@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会议展示</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.css}" rel="stylesheet">
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet">
+    <!-- jqgrid-->
+    <link th:href="@{/css/plugins/jqgrid/ui.jqgrid.css}" rel="stylesheet">
+    <link th:href="@{/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link href="/css/ie/ie.css?v=0.9" rel="stylesheet">
+    <!-- bootstraptable-->
+    <link th:href="@{/css/plugins/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet">
+
+    <style>
+        #ietable2 tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        #ietable2 th {
+            background: #efefef;
+        }
+    </style>
+</head>
+<body class="gray-bg" onload="select();">
+
+<div class="wrapper wrapper-content animated fadeInRight" >
+    <!--    <div class="row" style="margin-left: 2px;margin-bottom: auto">-->
+    <!--        <div class="ibox float-e-margins">-->
+    <!--            <div class="ibox-title">-->
+    <!--                <button onclick="iesqlSearch()" class="btn btn-primary">选择库文件</button>-->
+    <!--                <input type="file" value="选择本地文件" id="ieupload" style="display:none;" onchange="return iefileUpload_onselect()"/>-->
+    <!--                &lt;!&ndash;                        <input type="button" value="选择本地文件" id="ieimport">&ndash;&gt;-->
+    <!--                <button id="ieimport" class="btn btn-primary">选择本地文件</button>-->
+    <!--                <label id="iefile-name"></label>-->
+    <!--            </div >-->
+    <!--        </div >-->
+    <!--    </div>-->
+    <div class="row">
+        <div class="col-sm-12" style="margin-left: 10px">
+            <div class="ibox float-e-margins" style="height:100%">
+                <div class="ibox-title">
+                    <h5 style="float:left;margin-left:10px;">信息列表展示</h5>
+                    <div class="ibox-tools">
+                        <button style="float:left;margin-left:10px;margin-top: -10px" id="buttonadd" class="btn btn-info"><i class="fa fa-edit"></i>添加信息</button>
+                        <button style="float:left;margin-left:10px;margin-top: -10px" id="buttondel" class="btn btn-info"><i class="fa fa-edit"></i>批量删除</button>
+                    </div>
+                </div>
+                <div class="ibox-content"  style="width: 100%;height:100%;margin:0 auto;">
+                    <table id="meetingtable"></table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 浏览文章 -->
+
+
+
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/js/plugins/layer/layer.min.js}"></script>
+<script th:src="@{/js/plugins/bootstrap-table/bootstrap-table.min.js}"></script>
+<script th:src="@{/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js}"></script>
+
+<!-- 自定义js -->
+<script th:src="@{/js/hplus.js}"></script>
+<script type="text/javascript" th:src="@{/js/contabs.js}"></script>
+<!--<script src="/js/page/mt/ie.js?v=0.9"></script>-->
+<script src="/js/page/mt/mt.js?v=2.0"></script>
+<script th:src="@{/js/page/systemManagement/log.js}"></script>
+
+<script th:src="@{/js/plugins/peity/jquery.peity.min.js}"></script>
+<!-- jqGrid -->
+<script th:src="@{/js/plugins/jqgrid/i18n/grid.locale-cn.js}"></script>
+<script th:src="@{/js/plugins/jqgrid/jquery.jqGrid.min.js}"></script>
+<!-- 自定义js -->
+<script th:src="@{/js/content.js}"></script>
+<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+
+<script th:src="@{/js/plugins/layer/laydate/laydate.js}"></script>
+
+
+<script type="text/javascript" th:src="@{js/plugins/markdown/markdown.js}"></script>
+<script type="text/javascript" th:src="@{js/plugins/markdown/to-markdown.js}"></script>
+<script type="text/javascript" th:src="@{js/plugins/markdown/bootstrap-markdown.js}"></script>
+<script type="text/javascript" th:src="@{js/plugins/markdown/bootstrap-markdown.zh.js}"></script>
+
+</body>
+</html>

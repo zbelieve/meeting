@@ -1,0 +1,19 @@
+
+server:
+  port: 8081
+
+spring:
+  datasource:
+    name: systemmanage
+    url: jdbc:mysql://localhost:3306/cmccmeeting?serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#注意：一定要对应mapper映射xml文件的所在路径
+# 注意：对应实体类的路径
+mybatis:
+  type-aliases-package: com.cmcc.pojo
+  mapper-locations: classpath:mapper/*.xml
+

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>技术分享信息发布系统</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+
+<!--.fixed-nav #wrapper padding-top: 50px;-->
+<body class="full-height-layout gray-bg" style="overflow:hidden">
+<div id="wrapper" style="overflow:hidden">
+    <!--标题头开始-->
+    <div class="navbar navbar-fixed-top titlebackground">
+        <div style="'vertical-align:middle;">
+            <!--系统图标-->
+            <img style="float:left; width:30px;height:30px; margin-top:10px;margin-left:5px;" th:src="@{/img/title.ico}"/>
+            <!--系统名称-->
+            <div style="float:left; height:100%; color:#efefef;  margin-top:8px; text-align:center; font:22px bold,sans-serif;     -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none;user-select:none;">&nbsp;&nbsp;信息分享展示系统</div>
+        </div>
+        <a th:href="@{/login}" class="roll-nav roll-right J_tabExit mousehover" style="float: right;padding-top: 15px;"><i class="fa fa fa-sign-out"></i> 退出</a>
+        <div class="nav navbar-top-links navbar-right " style="float: right;height: 40px;padding-top:0px;">
+            <li class="dropdown mousehover">
+                <a class="dropdown-toggle count-info " data-toggle="dropdown" href="#" style="background: none;">
+<!--                    <span id="username" style="color: white;font-size: 14px;"><b>系统管理员</b></span><span class="caret" style="color: white;"></span>-->
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <div class="text-center link-block">
+                            <a class="J_menuItem" href="#">
+                                <strong>测试</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div class="text-center link-block">
+                            <a  href="javascript:void(0)" onclick="isChangePassWord()">
+<!--                                <strong>修改密码</strong>-->
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+    </div>
+    <!--标题头结束-->
+
+    <!--左侧导航开始-->
+    <nav class="navbar-default navbar-static-side"  style="background-color:#34485E;" role="navigation">
+        <div class="sidebar-collapse" >
+            <ul class="nav" id="side-menu" >
+                <!--菜单最小化按钮-->
+                <div style="height:100%;width:100%;background-color:#344800;padding:0px;">
+                    <a class="navbar-minimalize btn  btn-primary "  style="border:0px; outline:none;  width:100%;line-height:20px;text-align:center;padding: 10px 0px; background-color:#344856" href="#">
+                        <!--navbar-minimalize-->
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+
+                <!--菜单项开始-->
+                <!--功能目录-->
+                <li >
+                    <a href="#" style="border-top:1px solid #6381A1;">
+                        <i class="fa fa-home"></i> <span class="nav-label">主页</span> <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+
+<!--                        <li>-->
+<!--                            <a class="J_menuItem" style="background-color:#34485e" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'" th:href="@{/toIndex2}"><i class="fa fa-home"></i><span class="nav-label">主页示例二</span></a>-->
+<!--                        </li>-->
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="#" style="border-top:1px solid #6381A1;">
+                        <i class="fa fa fa-cogs"></i>
+                        <span class="nav-label">信息中心</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+<!--                        <li>-->
+<!--                            <a class="J_menuItem" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'" style="background-color:#34485e" th:href="@{/mt/addindex}">会议发布</a>-->
+<!--                        </li>-->
+                        <li>
+                            <a class="J_menuItem" style="background-color:#34485e" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'"  th:href="@{/mt/viewindex}">信息展现</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </nav>
+    <!--左侧导航结束-->
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom"> </div>
+        <!--tab区开始-->
+        <div class="row content-tabs">
+            <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
+            </button>
+            <nav class="page-tabs J_menuTabs">
+                <div class="page-tabs-content">
+                    <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+<!--                    增加tab页标题 <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页2</a>-->
+                </div>
+            </nav>
+            <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
+            </button>
+            <div class="btn-group roll-nav roll-right">
+                <button class="dropdown J_tabClose" data-toggle="dropdown">关闭页面<span class="caret"></span>
+
+                </button>
+                <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                    <!--<li class="J_tabShowActive"><a>定位当前选项卡</a>
+                    </li>
+                    <li class="divider"></li>-->
+                    <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                    </li>
+                    <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                    </li>
+                </ul>
+            </div>
+            <!--<a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>-->
+        </div>
+        <!--tab区结束-->
+
+        <!--iframe的工作区开始-->
+        <div class="row J_mainContent" id="content-main">
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" th:src="@{/toIndex1}" frameborder="0" data-id="index_v1.html" seamless></iframe>
+        </div>
+        <!--iframe的工作区结束-->
+
+        <!--状态栏-->
+        <div class="footer">
+            <div class="pull-right">&copy; 2020</a></div>
+            <!--<div class="pull-right">&copy; 2020 <a href="http://www.hhu.edu.cn" target="_blank">HHU</a></div>-->
+        </div>
+
+    </div>
+    <!--右侧部分结束-->
+
+</div>
+
+<!-- 全局js -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/js/plugins/layer/layer.min.js}"></script>
+
+<!-- 自定义js -->
+<script th:src="@{/js/hplus.js}"></script>
+<script type="text/javascript" th:src="@{/js/contabs.js}"></script>
+
+<!--树状js-->
+<!--<script th:src="@{/js/jquery.ztree.core.js}"></script>-->
+
+<!-- 第三方插件 -->
+<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+<script>
+    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+    var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+    var ischrome = userAgent.indexOf("Chrome") > -1; //判断是否Firefox浏览器
+    if(isFF){
+        document.getElementsByTagName('body')[0].style.zoom=0.6;
+    }else if(ischrome){
+        document.getElementsByTagName('body')[0].style.zoom=0.9;
+    }
+
+</script>
+
+</body>
+
+</html>
