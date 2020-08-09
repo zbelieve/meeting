@@ -8,7 +8,7 @@
         <version>2.2.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.cmcc</groupId>
+    <groupId>com.meeting</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>meeting</name>
@@ -160,11 +160,17 @@
             <artifactId>nekohtml</artifactId>
             <version>1.9.22</version>
         </dependency>
+
         <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-all</artifactId>
-            <version>1.4.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <build>

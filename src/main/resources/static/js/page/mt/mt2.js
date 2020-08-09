@@ -82,13 +82,7 @@ function select(){
                         // alert(sid_code);
                         return '<a href="#">' +
                             '<a href="javascript:void(0)" title="显示">' +
-                            '<i class="glyphicon glyphicon-eye-open"></i> ' +
-                            '<a href="#editProject" data-toggle="modal" title="修改">' +
-                            '<i class="glyphicon glyphicon-pencil"></i> ' +
-                            '</a>'+
-                            '<a href="javascript:void(0)" title="删除">' +
-                            '<i class="glyphicon glyphicon-trash text-danger"></i> ' +
-                            '</a>';
+                            '<i class="glyphicon glyphicon-eye-open"></i> ';
                     },
                     events: {
                     'click a[title=显示]': function (e, value, row, index) {
@@ -97,19 +91,6 @@ function select(){
                         alert(JSON.stringify(rows))
                         alert('click change button');
                     },
-                        'click a[title=删除]': function (e, value, row, index) {
-                            var rows=$("#meetingtable").bootstrapTable("getData")[index];
-                            alert(JSON.stringify(rows))
-                            if(confirm('此操作不可逆，请确认是否删除？')){
-                                $.ajax();
-                            }
-                        },
-                        'click a[title=修改]': function (e, value, row, index) {
-                            // e.preventDefault();
-                            var rows=$("#meetingtable").bootstrapTable("getData")[index];
-                            alert(JSON.stringify(rows))
-                            alert('click change button');
-                        }
                     }
                 }
 

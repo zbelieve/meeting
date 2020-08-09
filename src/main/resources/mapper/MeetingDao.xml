@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cmcc.dao.MeetingDao">
-    <select id="selectAll"  resultType="com.cmcc.pojo.MeetingPojo">
+<mapper namespace="com.meeting.dao.MeetingDao">
+    <select id="selectAll"  resultType="com.meeting.pojo.MeetingPojo">
         select * from meeting;
     </select>
 </mapper>

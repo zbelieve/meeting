@@ -10,6 +10,8 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  main:
+    allow-bean-definition-overriding: true
 
 #注意：一定要对应mapper映射xml文件的所在路径
 # 注意：对应实体类的路径

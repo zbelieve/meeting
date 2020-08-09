@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+>
 <html>
 
 <head>
@@ -28,12 +30,13 @@
             <!--系统名称-->
             <div style="float:left; height:100%; color:#efefef;  margin-top:8px; text-align:center; font:22px bold,sans-serif;     -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none;user-select:none;">&nbsp;&nbsp;信息分享展示系统</div>
         </div>
-        <a th:href="@{/login}" class="roll-nav roll-right J_tabExit mousehover" style="float: right;padding-top: 15px;"><i class="fa fa fa-sign-out"></i> 退出</a>
+        <a th:href="@{/logout}" class="roll-nav roll-right J_tabExit mousehover" style="float: right;padding-top: 15px;"><i class="fa fa fa-sign-out"></i> 退出</a>
         <div class="nav navbar-top-links navbar-right " style="float: right;height: 40px;padding-top:0px;">
             <li class="dropdown mousehover">
                 <a class="dropdown-toggle count-info " data-toggle="dropdown" href="#" style="background: none;">
 <!--                    <span id="username" style="color: white;font-size: 14px;"><b>系统管理员</b></span><span class="caret" style="color: white;"></span>-->
-                </a>
+                    <span style="color: white;font-size: 14px;">用户名:<span style="color: white;font-size: 14px;" sec:authentication="name"></span></span>
+                </span>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
                         <div class="text-center link-block">
@@ -47,7 +50,7 @@
                     <li>
                         <div class="text-center link-block">
                             <a  href="javascript:void(0)" onclick="isChangePassWord()">
-<!--                                <strong>修改密码</strong>-->
+                                <!--                                <strong>修改密码</strong>-->
                             </a>
                         </div>
                     </li>
@@ -78,9 +81,9 @@
                     </a>
                     <ul class="nav nav-second-level">
 
-<!--                        <li>-->
-<!--                            <a class="J_menuItem" style="background-color:#34485e" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'" th:href="@{/toIndex2}"><i class="fa fa-home"></i><span class="nav-label">主页示例二</span></a>-->
-<!--                        </li>-->
+                        <!--                        <li>-->
+                        <!--                            <a class="J_menuItem" style="background-color:#34485e" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'" th:href="@{/toIndex2}"><i class="fa fa-home"></i><span class="nav-label">主页示例二</span></a>-->
+                        <!--                        </li>-->
 
                     </ul>
 
@@ -93,11 +96,14 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-<!--                        <li>-->
-<!--                            <a class="J_menuItem" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'" style="background-color:#34485e" th:href="@{/mt/addindex}">会议发布</a>-->
-<!--                        </li>-->
+                        <!--                        <li>-->
+                        <!--                            <a class="J_menuItem" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'" style="background-color:#34485e" th:href="@{/mt/addindex}">会议发布</a>-->
+                        <!--                        </li>-->
                         <li>
-                            <a class="J_menuItem" style="background-color:#34485e" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'"  th:href="@{/mt/viewindex}">信息展现</a>
+
+                            <a class="J_menuItem" style="background-color:#34485e" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'"  th:href="@{/mt/viewindex}" sec:authorize="hasRole('root')">信息发布与管理（管理员登陆）</a>
+                            <a class="J_menuItem" style="background-color:#34485e" onmousemove="this.style.backgroundColor='#465e79'" onmouseout="this.style.backgroundColor='#34485E'"  th:href="@{/mt/viewindex2}">信息查询</a>
+
                         </li>
                     </ul>
                 </li>
@@ -119,7 +125,7 @@
             <nav class="page-tabs J_menuTabs">
                 <div class="page-tabs-content">
                     <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
-<!--                    增加tab页标题 <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页2</a>-->
+                    <!--                    增加tab页标题 <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页2</a>-->
                 </div>
             </nav>
             <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -146,12 +152,13 @@
         <div class="row J_mainContent" id="content-main">
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" th:src="@{/toIndex1}" frameborder="0" data-id="index_v1.html" seamless></iframe>
         </div>
+        </div>
         <!--iframe的工作区结束-->
 
         <!--状态栏-->
         <div class="footer">
             <div class="pull-right">&copy; 2020</a></div>
-            <!--<div class="pull-right">&copy; 2020 <a href="http://www.hhu.edu.cn" target="_blank">HHU</a></div>-->
+
         </div>
 
     </div>
