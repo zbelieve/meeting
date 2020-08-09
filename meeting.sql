@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : root
 Source Server Version : 50645
 Source Host           : localhost:3306
-Source Database       : cmccmeeting
+Source Database       : meeting
 
 Target Server Type    : MYSQL
 Target Server Version : 50645
 File Encoding         : 65001
 
-Date: 2020-08-09 19:52:03
+Date: 2020-08-09 20:59:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;

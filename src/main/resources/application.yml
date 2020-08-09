@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     name: systemmanage
-    url: jdbc:mysql://localhost:3306/cmccmeeting?serverTimezone=UTC&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/meeting?serverTimezone=UTC&characterEncoding=utf-8
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
