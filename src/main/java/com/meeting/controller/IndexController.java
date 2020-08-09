@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class IndexController {
-    //跳转会议页面
+    //跳转会议页面.杨江
     @RequestMapping("/mt/viewindex")
     public String viewindex(){
         return "mt/meetingindex";

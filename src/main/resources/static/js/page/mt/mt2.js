@@ -102,10 +102,3 @@ function select(){
     });
 
 }
-$("#buttonadd").click(function(){
-    alert("新增")
-})
-
-$("#buttondel").click(function(){
-    alert("删除")
-})
