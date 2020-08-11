@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface MeetingService {
     List<MeetingPojo> selectAll();
+    int editInfo(MeetingPojo meetingPojo);
 }

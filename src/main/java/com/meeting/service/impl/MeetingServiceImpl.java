@@ -22,4 +22,9 @@ public class MeetingServiceImpl implements MeetingService {
        return meetingDao.selectAll();
         //return meetingDaojpa.findAll();
     }
+
+    @Override
+    public int editInfo(MeetingPojo meetingPojo) {
+        return meetingDao.editInfo(meetingPojo);
+    }
 }

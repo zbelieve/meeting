@@ -15,6 +15,8 @@
     <link href="/css/ie/ie.css?v=0.9" rel="stylesheet">
     <!-- bootstraptable-->
     <link th:href="@{/css/plugins/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet">
+    <!-- bootstrap-datetimepicker-->
+    <link th:href="@{/css/bootstrap-datetimepicker.css}" rel="stylesheet">
 
     <style>
         #ietable2 tr:nth-child(even) {
@@ -59,7 +61,89 @@
     </div>
 </div>
 
-<!-- 浏览文章 -->
+<!-- 模态框修改 -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="Modal-tp">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">修改详细信息</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">信息标题：</label>
+                        <div class="col-sm-9">
+                            <input type="hidden" id="modal_m_uuid">
+                            <input type="text" class="form-control"  id="modal_m_name"  placeholder="请输入信息标题">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">信息概要：</label>
+                        <div class="col-sm-9">
+                            <input type="text"  class="form-control" id="modal_m_content" placeholder="请输入信息概要">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">信息分享人：</label><div id="email"></div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_m_person" placeholder="请输入信息分享人">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">信息会议类型：</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="modal_m_typeStr">
+                                <option value="0">在线会议</option>
+                                <option value="1">线下会议</option>
+                                <option value="2">实时会议</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">会议id：</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_m_meetingId" placeholder="请输入会议id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">会议url：</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_m_meetingUrl" placeholder="请输入会议url">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">会议详情：</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_m_meetingDetails" placeholder="请输入会议详情">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">会议时间：</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="timeSet" class="form-control" id="modal_m_meetingTime" placeholder="请输入会议时间">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">创建信息时间：</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="timeSet" class="form-control" id="modal_m_createTime" placeholder="请输入信息创建时间">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="sava-edit-btn">保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
 
 
 
@@ -71,6 +155,11 @@
 <script th:src="@{/js/plugins/layer/layer.min.js}"></script>
 <script th:src="@{/js/plugins/bootstrap-table/bootstrap-table.min.js}"></script>
 <script th:src="@{/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js}"></script>
+
+<!-- 陶鹏 -->
+<script th:src="@{/js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js}"></script>
+<script th:src="@{/js/bootstrap-select/bootstrap-select.css}"></script>
+
 
 <!-- 自定义js -->
 <script th:src="@{/js/hplus.js}"></script>

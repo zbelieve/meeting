@@ -11,5 +11,6 @@ import java.util.List;
 @Component
 public interface MeetingDao {
     List<MeetingPojo> selectAll();
+    int editInfo(MeetingPojo meetingPojo);
 
 }

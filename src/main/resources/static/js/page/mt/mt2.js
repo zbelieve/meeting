@@ -53,7 +53,7 @@ function select(){
                     field: 'm_content',
                     title: '信息概要',
                 },{
-                    field: 'm_name',
+                    field: 'm_person',
                     title: '信息分享人',
                 },{
                     field: 'm_typeStr',
