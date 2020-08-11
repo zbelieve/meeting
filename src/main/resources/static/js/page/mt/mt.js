@@ -12,6 +12,7 @@ function select(){
     $('#modalEdit').on('hide.bs.modal', function () {
         reset();
     })
+
     $.jgrid.defaults.styleUI = 'Bootstrap';
     var url = "/meet/findAll/";
     $.get(url, function (data) {
@@ -81,7 +82,7 @@ function select(){
                         // var sid_code = base64encode(row.sid + '');   //  sid 加密处理
                         // alert(sid_code);
                         return '<a href="#">' +
-                            '<a href="javascript:void(0)" title="显示">' +
+                            '<a href="javascript:void(0)" title="显示" data-toggle="modal" data-target="#showModal">' +
                             '<i class="glyphicon glyphicon-eye-open"></i> ' +
                             '<a href="#editProject" data-toggle="modal" title="修改">' +
                             '<i class="glyphicon glyphicon-pencil"></i> ' +
@@ -91,12 +92,21 @@ function select(){
                             '</a>';
                     },
                     events: {
-                    'click a[title=显示]': function (e, value, row, index) {
-                        // e.preventDefault();
-                        var rows=$("#meetingtable").bootstrapTable("getData")[index];
-                        alert(JSON.stringify(rows))
-                        alert('click change button');
-                    },
+                        'click a[title=显示]': function (e, value, row, index) {
+                            var rows=$("#meetingtable").bootstrapTable("getData")[index];
+                            //alert(JSON.stringify(rows))
+                            //显示在模态框内
+                            //张梦倩
+                            document.getElementById("modal_m_name").value = rows.m_name;
+                            document.getElementById("modal_m_content").value = rows.m_content;
+                            document.getElementById("modal_m_person").value = rows.m_person;
+                            document.getElementById("modal_m_typeStr").value = rows.m_typeStr;
+                            document.getElementById("modal_m_meetingid").value = rows.m_meetingid;
+                            document.getElementById("modal_m_meetingurl").value = rows.m_meetingurl;
+                            document.getElementById("modal_m_details").value = rows.m_details;
+                            document.getElementById('modal_m_meetingtime').value = rows.m_meetingtime;
+                            document.getElementById("modal_m_createtime").value = rows.m_createtime;
+                        },
                         'click a[title=删除]': function (e, value, row, index) {
                             var rows=$("#meetingtable").bootstrapTable("getData")[index];
                             alert(JSON.stringify(rows))
