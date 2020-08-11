@@ -97,15 +97,15 @@ function select(){
                             //alert(JSON.stringify(rows))
                             //显示在模态框内
                             //张梦倩
-                            document.getElementById("modal_m_name").value = rows.m_name;
-                            document.getElementById("modal_m_content").value = rows.m_content;
-                            document.getElementById("modal_m_person").value = rows.m_person;
-                            document.getElementById("modal_m_typeStr").value = rows.m_typeStr;
-                            document.getElementById("modal_m_meetingid").value = rows.m_meetingid;
-                            document.getElementById("modal_m_meetingurl").value = rows.m_meetingurl;
-                            document.getElementById("modal_m_details").value = rows.m_details;
-                            document.getElementById('modal_m_meetingtime').value = rows.m_meetingtime;
-                            document.getElementById("modal_m_createtime").value = rows.m_createtime;
+                            document.getElementById("zmodal_m_name").value = rows.m_name;
+                            document.getElementById("zmodal_m_content").value = rows.m_content;
+                            document.getElementById("zmodal_m_person").value = rows.m_person;
+                            document.getElementById("zmodal_m_typeStr").value = rows.m_typeStr;
+                            document.getElementById("zmodal_m_meetingid").value = rows.m_meetingid;
+                            document.getElementById("zmodal_m_meetingurl").value = rows.m_meetingurl;
+                            document.getElementById("zmodal_m_details").value = rows.m_details;
+                            document.getElementById('zmodal_m_meetingtime').value = rows.m_meetingtime;
+                            document.getElementById("zmodal_m_createtime").value = rows.m_createtime;
                         },
                         'click a[title=删除]': function (e, value, row, index) {
                             var rows=$("#meetingtable").bootstrapTable("getData")[index];
