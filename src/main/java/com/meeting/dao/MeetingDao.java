@@ -11,5 +11,10 @@ import java.util.List;
 @Component
 public interface MeetingDao {
     List<MeetingPojo> selectAll();
+  
     int deleteOne(String  m_uuid);//姜若鹏
+
+    int editInfo(MeetingPojo meetingPojo);
+
+
 }

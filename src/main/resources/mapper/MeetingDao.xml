@@ -4,8 +4,26 @@
     <select id="selectAll"  resultType="com.meeting.pojo.MeetingPojo">
         select * from meeting;
     </select>
+
 <!--    姜若鹏-->
     <delete id="deleteOne" parameterType="java.lang.String">
         delete from  meeting where m_uuid = #{m_uuid}
     </delete>
+
+
+    <update id="editInfo" >
+        update meeting
+        set
+        m_name = #{m_name},
+        m_content = #{m_content},
+        m_person = #{m_person},
+        m_type = #{m_type},
+        m_meetingid = #{m_meetingid},
+        m_meetingurl = #{m_meetingurl},
+        m_meetingtime = #{m_meetingtime},
+        m_createtime = #{m_createtime},
+        m_details = #{m_details}
+        where m_uuid = #{m_uuid};
+    </update>
+
 </mapper>

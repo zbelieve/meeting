@@ -4,7 +4,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.meeting.pojo.MeetingPojo;
 import com.meeting.service.MeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -64,13 +69,31 @@ public class MeetingController {
     }
 
     //修改一个信息（陶鹏）
-    public String editMeetings(){
-        return "";
+    @RequestMapping(value = "/meet/editInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public String editMeetings(MeetingPojo meetingPojo){
+        int status = meetingService.editInfo(meetingPojo);
+        if(status == 1){
+            return "修改信息成功";
+        }
+        else{
+            return "修改信息失败";
+        }
     }
+    //（陶鹏）
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    }
+
 
     //查看一个信息（张梦倩）
     public String viewMeetings(){
         return "";
     }
+
+
 
 }

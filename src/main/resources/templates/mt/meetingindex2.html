@@ -51,7 +51,84 @@
                 <div class="ibox-content"  style="width: 100%;height:100%;margin:0 auto;">
                     <table id="meetingtable"></table>
                 </div>
+                <!--张梦倩-->
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="showModal">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="showModalTitle">查看详细信息</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" class="form-horizontal">
 
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">信息标题：</label>
+                                        <div class="col-sm-9">
+                                            <input type="hidden" id="modal_m_uuid">
+                                            <input type="text" class="form-control"  id="modal_m_name"  disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">信息概要：</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"  class="form-control" id="modal_m_content" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">信息分享人：</label><div id="email"></div>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="modal_m_person" disabled="disabled" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">会议类型：</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="modal_m_typeStr" disabled="disabled" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">会议id：</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="modal_m_meetingid" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">会议url：</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="modal_m_meetingurl" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">会议详情：</label>
+                                        <div class="col-sm-9">
+                                            <!--<input type="text" class="form-control" id="modal_m_details" disabled="disabled">-->
+                                            <textarea type="text" class="form-control" id="modal_m_details" disabled="disabled"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">会议时间：</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="timeSet" class="form-control" id="modal_m_meetingtime" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">创建信息时间：</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="timeSet" class="form-control" id="modal_m_createtime" disabled="disabled" >
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--张梦倩-->
             </div>
         </div>
     </div>

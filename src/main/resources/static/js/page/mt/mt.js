@@ -12,6 +12,7 @@ function select(){
     $('#modalEdit').on('hide.bs.modal', function () {
         reset();
     })
+
     $.jgrid.defaults.styleUI = 'Bootstrap';
     var url = "/meet/findAll/";
     $.get(url, function (data) {
@@ -53,7 +54,7 @@ function select(){
                     field: 'm_content',
                     title: '信息概要',
                 },{
-                    field: 'm_name',
+                    field: 'm_person',
                     title: '信息分享人',
                 },{
                     field: 'm_typeStr',
@@ -81,7 +82,7 @@ function select(){
                         // var sid_code = base64encode(row.sid + '');   //  sid 加密处理
                         // alert(sid_code);
                         return '<a href="#">' +
-                            '<a href="javascript:void(0)" title="显示">' +
+                            '<a href="javascript:void(0)" title="显示" data-toggle="modal" data-target="#showModal">' +
                             '<i class="glyphicon glyphicon-eye-open"></i> ' +
                             '<a href="#editProject" data-toggle="modal" title="修改">' +
                             '<i class="glyphicon glyphicon-pencil"></i> ' +
@@ -91,12 +92,29 @@ function select(){
                             '</a>';
                     },
                     events: {
+
                     'click a[title=显示]': function (e, value, row, index) {
                         // e.preventDefault();
                         var rows=$("#meetingtable").bootstrapTable("getData")[index];
                         alert(JSON.stringify(rows))
                         alert('click change button');
                     },
+                        
+                        'click a[title=显示]': function (e, value, row, index) {
+                            var rows=$("#meetingtable").bootstrapTable("getData")[index];
+                            //alert(JSON.stringify(rows))
+                            //显示在模态框内
+                            //张梦倩
+                            document.getElementById("zmodal_m_name").value = rows.m_name;
+                            document.getElementById("zmodal_m_content").value = rows.m_content;
+                            document.getElementById("zmodal_m_person").value = rows.m_person;
+                            document.getElementById("zmodal_m_typeStr").value = rows.m_typeStr;
+                            document.getElementById("zmodal_m_meetingid").value = rows.m_meetingid;
+                            document.getElementById("zmodal_m_meetingurl").value = rows.m_meetingurl;
+                            document.getElementById("zmodal_m_details").value = rows.m_details;
+                            document.getElementById('zmodal_m_meetingtime').value = rows.m_meetingtime;
+                            document.getElementById("zmodal_m_createtime").value = rows.m_createtime;
+                        },
                         //姜若鹏
                         'click a[title=删除]': function (e, value, row, index) {
                             var rows=$("#meetingtable").bootstrapTable("getData")[index];
@@ -122,8 +140,19 @@ function select(){
                         'click a[title=修改]': function (e, value, row, index) {
                             // e.preventDefault();
                             var rows=$("#meetingtable").bootstrapTable("getData")[index];
-                            alert(JSON.stringify(rows))
-                            alert('click change button');
+                            $("#Modal-tp").modal('show')
+                            document.getElementById("modal_m_uuid").value = rows.m_uuid;
+                            document.getElementById("modal_m_name").value = rows.m_name;
+                            document.getElementById("modal_m_content").value = rows.m_content;
+                            document.getElementById("modal_m_person").value = rows.m_person;
+                            $("#modal_m_typeStr").val(rows.m_type)
+                            document.getElementById("modal_m_meetingUrl").value = JSON.parse(JSON.stringify(rows))['m_meetingurl'];
+                            document.getElementById("modal_m_meetingDetails").value = JSON.parse(JSON.stringify(rows))['m_details'];
+                            document.getElementById("modal_m_meetingId").value = rows.m_meetingid;
+                            document.getElementById("modal_m_meetingTime").value = rows.m_meetingtime;
+                            document.getElementById("modal_m_createTime").value = rows.m_createtime;
+                            // alert(JSON.stringify(rows))
+                            // alert('click change button');
                         }
                     }
                 }
@@ -142,4 +171,45 @@ $("#buttonadd").click(function(){
 
 $("#buttondel").click(function(){
     alert("删除")
+})
+
+//陶鹏
+$("#sava-edit-btn").on("click", function() {
+    data = {
+        m_uuid : document.getElementById("modal_m_uuid").value,
+        m_name : document.getElementById("modal_m_name").value,
+        m_content : document.getElementById("modal_m_content").value,
+        m_person : document.getElementById("modal_m_person").value,
+        m_type : $('#modal_m_typeStr option:selected').val(),
+        m_typeStr : $('#modal_m_typeStr option:selected').text(),
+        m_meetingurl : document.getElementById("modal_m_meetingUrl").value,
+        m_details: document.getElementById("modal_m_meetingDetails").value,
+        m_meetingid : document.getElementById("modal_m_meetingId").value,
+        m_meetingtime : document.getElementById("modal_m_meetingTime").value,
+        m_createtime : document.getElementById("modal_m_createTime").value
+    }
+    $.ajax({
+        type : "POST",
+        url : "/meet/editInfo",
+        data : data,
+        success : function(data) {
+
+            alert('修改成功！');
+
+            location.reload();
+            // document.execCommand('Refresh');
+        },
+        error : function() {
+            alert('修改失败！');
+
+        }
+    });
+});
+//datetimepicker设置。陶鹏
+$("input[name='timeSet']").datetimepicker({
+    minView : "day", //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+    language : 'zh-CN', // 语言
+    autoclose : true, //  true:选择时间后窗口自动关闭
+    format : 'yyyy-mm-dd hh:00:00', // 文本框时间格式，设置为0
+    todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
 })
