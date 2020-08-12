@@ -5,6 +5,12 @@
         select * from meeting;
     </select>
 
+<!--    姜若鹏-->
+    <delete id="deleteOne" parameterType="java.lang.String">
+        delete from  meeting where m_uuid = #{m_uuid}
+    </delete>
+
+
     <update id="editInfo" >
         update meeting
         set
@@ -19,4 +25,5 @@
         m_details = #{m_details}
         where m_uuid = #{m_uuid};
     </update>
+
 </mapper>
