@@ -97,11 +97,26 @@ function select(){
                         alert(JSON.stringify(rows))
                         alert('click change button');
                     },
+                        //姜若鹏
                         'click a[title=删除]': function (e, value, row, index) {
                             var rows=$("#meetingtable").bootstrapTable("getData")[index];
-                            alert(JSON.stringify(rows))
+                            var m_uuid = rows.m_uuid;
                             if(confirm('此操作不可逆，请确认是否删除？')){
-                                $.ajax();
+                                jQuery.ajax({
+                                    url : "/meet/deleteOne",
+                                    dataType : 'json',
+                                    data:{"m_uuid":m_uuid},
+                                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                                    type : "post",
+                                    success : function(data){
+                                        if(data=="1"){
+                                            alert("删除成功！");
+                                            location.reload();//刷新表单
+                                        }
+
+                                    }
+
+                                });
                             }
                         },
                         'click a[title=修改]': function (e, value, row, index) {

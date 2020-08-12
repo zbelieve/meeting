@@ -4,4 +4,8 @@
     <select id="selectAll"  resultType="com.meeting.pojo.MeetingPojo">
         select * from meeting;
     </select>
+<!--    姜若鹏-->
+    <delete id="deleteOne" parameterType="java.lang.String">
+        delete from  meeting where m_uuid = #{m_uuid}
+    </delete>
 </mapper>

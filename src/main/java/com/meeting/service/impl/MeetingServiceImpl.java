@@ -22,4 +22,9 @@ public class MeetingServiceImpl implements MeetingService {
        return meetingDao.selectAll();
         //return meetingDaojpa.findAll();
     }
+    //姜若鹏
+    @Override
+    public int deleteOne(String m_uuid) {
+        return meetingDao.deleteOne(m_uuid);
+    }
 }

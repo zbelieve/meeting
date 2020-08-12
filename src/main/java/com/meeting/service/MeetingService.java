@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface MeetingService {
     List<MeetingPojo> selectAll();
+    int deleteOne(String  m_uuid);//姜若鹏
 }
