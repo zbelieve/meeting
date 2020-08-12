@@ -1,5 +1,6 @@
 package com.meeting;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -8,24 +9,29 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        int t = input.nextInt();
-        for(int i=0;i<t;i++){
-            int n = input.nextInt();
-            int[] num = new int[n];
-            for(int k=0;k<n;k++){
-                num[k] = input.nextInt();
+        Scanner sc = new Scanner(System.in);
+        int n = Integer.parseInt(sc.nextLine());
+        for(int i=0;i<n;i++){
+            int N=sc.nextInt();
+            int M =sc.nextInt();
+            if(M==1){
+                System.out.println(getx(M));
+            }else if(N==1){
+                System.out.println(getx(M));
+            }else {
+                int x = Math.min(getx(N),getx(M));
+                System.out.println(x);
             }
-            Arrays.sort(num);
-            int sum1 = 0;
-            int sum2 = 0;
-            int[] flag1 = new int[n];
-            int flag1Num = 0;
-
-
         }
+    }
 
-
+    public static int getx(int n){
+        for(int i=2;i<=Math.pow(n,0.5);i++){
+            if(n%i==0){
+                return i;
+            }
+        }
+        return n;
     }
 
 }

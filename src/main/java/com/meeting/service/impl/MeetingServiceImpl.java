@@ -27,7 +27,7 @@ public class MeetingServiceImpl implements MeetingService {
     @Override
     public int deleteOne(String m_uuid) {
         return meetingDao.deleteOne(m_uuid);
-
+    }
 
     @Override
     public int editInfo(MeetingPojo meetingPojo) {
