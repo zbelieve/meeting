@@ -34,4 +34,10 @@ public class MeetingServiceImpl implements MeetingService {
         return meetingDao.editInfo(meetingPojo);
 
     }
+    //杨江
+    @Override
+    public int addInfo(MeetingPojo meetingPojo) {
+        return meetingDao.addInfo(meetingPojo);
+
+    }
 }

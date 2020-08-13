@@ -166,11 +166,74 @@ function select(){
 
 }
 $("#buttonadd").click(function(){
-    alert("新增")
+    $("#Modal-tp-add").modal('show')
+    $("#sava-add-btn").on("click", function() {
+
+        data = {
+            m_uuid : document.getElementById("modal_m_uuid_add").value,
+            m_name : document.getElementById("modal_m_name_add").value,
+            m_content : document.getElementById("modal_m_content_add").value,
+            m_person : document.getElementById("modal_m_person_add").value,
+            m_type : $('#modal_m_typeStr_add option:selected').val(),
+            m_typeStr : $('#modal_m_typeStr_add option:selected').text(),
+            m_meetingurl : document.getElementById("modal_m_meetingUrl_add").value,
+            m_details: document.getElementById("modal_m_meetingDetails_add").value,
+            m_meetingid : document.getElementById("modal_m_meetingId_add").value,
+            m_meetingtime : document.getElementById("modal_m_meetingTime_add").value,
+            m_createtime : document.getElementById("modal_m_createTime_add").value
+        }
+        $.ajax({
+            type : "POST",
+            url : "/meet/addInfo",
+            data : data,
+            success : function(data) {
+
+                alert('添加成功！');
+
+                location.reload();
+                // document.execCommand('Refresh');
+            },
+            error : function() {
+                alert('添加失败！');
+
+            }
+        });
+    });
 })
 
 $("#buttondel").click(function(){
-    alert("删除")
+    var getSelectRows = $("#meetingtable").bootstrapTable('getSelections', function (row) {
+                return row;
+    });
+    var listdata = ""
+
+    for(var i=0,l=getSelectRows.length;i<l;i++){
+        listdata=getSelectRows[i]["m_uuid"]+" "+listdata
+    }
+
+    var m_uuid = listdata;
+    if(confirm('此操作不可逆，请确认是否删除？')){
+        jQuery.ajax({
+            url : "/meet/delInfos",
+            dataType : 'json',
+            data:{"m_uuid":m_uuid},
+            contentType : "application/x-www-form-urlencoded; charset=utf-8",
+            type : "post",
+            success : function(data){
+                if(data=="1"){
+                    alert("删除成功！");
+                    location.reload();//刷新表单
+                }else{
+                    alert("删除失败！");
+                }
+
+            }
+
+        });
+    }
+
+
+
 })
 
 //陶鹏

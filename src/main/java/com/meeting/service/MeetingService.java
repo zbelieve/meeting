@@ -14,4 +14,5 @@ public interface MeetingService {
 
     int editInfo(MeetingPojo meetingPojo);
 
+    int addInfo(MeetingPojo meetingPojo);//杨江
 }

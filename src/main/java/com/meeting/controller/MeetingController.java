@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +16,8 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by yj on 2020/8/7 14:31
@@ -27,7 +26,7 @@ import java.util.List;
 public class MeetingController {
     @Autowired
     MeetingService meetingService;
-
+    //查询信息(杨江)
     @RequestMapping(value = "/meet/findAll", method = RequestMethod.GET)
     @ResponseBody
     public JSONObject selectAll(){
@@ -39,14 +38,35 @@ public class MeetingController {
     }
 
 
-    //增加信息(王鸿章)
-    public String addMeeting(){
-        return "";
+    //增加信息(杨江)
+    @RequestMapping(value = "/meet/addInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public String addInfo(MeetingPojo meetingPojo){
+        meetingPojo.setM_uuid(UUID.randomUUID().toString().replace("-",""));
+        //System.out.println(JSONObject.toJSON(meetingPojo));
+        int status = meetingService.addInfo(meetingPojo);
+        if(status == 1){
+            return "添加信息成功";
+        }
+        else{
+            return "添加信息失败";
+        }
     }
 
-    //删除多个信息（郑文宇）
-    public String delMeetings(){
-        return "";
+    //删除多个信息（杨江）
+    @RequestMapping(value = "/meet/delInfos")
+    @ResponseBody
+    public String delMeetings(HttpServletResponse response , String m_uuid) throws IOException{
+        response.setContentType("text/text;charset=utf-8");//设置格式为UTF8
+        response.setCharacterEncoding("UTF-8");//设置格式为UTF8
+        //PrintWriter pw = response.getWriter();
+        // get user
+        String[] res = m_uuid.trim().split(" ");
+        for (int i=0;i<res.length;i++){
+            System.out.println(res[i]);
+            meetingService.deleteOne(res[i]);
+        }
+        return "1";
     }
 
     /**
@@ -67,6 +87,7 @@ public class MeetingController {
         pw.write(status+"");
         pw.close();
     }
+
 
     //修改一个信息（陶鹏）
     @RequestMapping(value = "/meet/editInfo", method = RequestMethod.POST)

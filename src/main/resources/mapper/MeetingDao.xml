@@ -26,4 +26,30 @@
         where m_uuid = #{m_uuid};
     </update>
 
+    <!--杨江添加信息-->
+    <insert id="addInfo" >
+        insert into meeting(m_uuid,m_name,m_content,m_person,m_type,m_meetingid,m_meetingurl,m_meetingtime,m_createtime,m_details)
+        values(
+            #{m_uuid},
+            #{m_name},
+            #{m_content},
+            #{m_person},
+            #{m_type},
+            #{m_meetingid},
+            #{m_meetingurl},
+            #{m_meetingtime},
+            #{m_createtime},
+            #{m_details}
+        )
+        ;
+    </insert>
+
+    <!--杨江添加信息-->
+    <delete id="delteInfo" >
+        delete from  meeting where m_uuid =
+        <foreach collection="list" item="item" index="index" separator=",">
+            #{item.UUID}
+        </foreach>
+    </delete>
+
 </mapper>
