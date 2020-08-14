@@ -19,4 +19,9 @@
         m_details = #{m_details}
         where m_uuid = #{m_uuid};
     </update>
+
+    <insert id="addMeetingWhz">
+        insert into meeting(m_uuid,m_name,m_content,m_person,m_type,m_meetingid,m_meetingurl,m_createtime,m_meetingtime,m_details)
+        values(#{m_uuid},#{m_name},#{m_content},#{m_person},#{m_type},#{m_meetingid},#{m_meetingurl},#{m_createtime},#{m_meetingtime},#{m_details})
+    </insert>
 </mapper>

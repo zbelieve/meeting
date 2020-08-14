@@ -133,7 +133,8 @@ function select(){
 
 }
 $("#buttonadd").click(function(){
-    alert("新增")
+    //alert("新增")
+    window.location.href="http://localhost:8081/meet/addIndexWhz";
 })
 
 $("#buttondel").click(function(){

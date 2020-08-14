@@ -27,4 +27,9 @@ public class MeetingServiceImpl implements MeetingService {
     public int editInfo(MeetingPojo meetingPojo) {
         return meetingDao.editInfo(meetingPojo);
     }
+
+    @Override
+    public void addMeetingWhz(MeetingPojo mp) {
+        meetingDao.addMeetingWhz(mp);
+    }
 }

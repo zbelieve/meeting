@@ -13,4 +13,5 @@ public interface MeetingDao {
     List<MeetingPojo> selectAll();
     int editInfo(MeetingPojo meetingPojo);
 
+    void addMeetingWhz(MeetingPojo mp);
 }

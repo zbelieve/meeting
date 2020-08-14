@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,9 +32,41 @@ public class MeetingController {
     }
 
 
-    //增加信息(王鸿章)
-    public String addMeeting(){
-        return "";
+    //增加信息(王鸿璋)
+    //跳转到表单静态html页面
+    @RequestMapping(value = "/meet/addIndexWhz", method = RequestMethod.GET)
+    public String addMeetingindexWhz(){
+        return "addWhz";
+    }
+    //增加信息（王鸿璋）
+    //接收表单提交的数据，并调用service写入数据库。
+    @RequestMapping(value = "/meet/addWhz", method = RequestMethod.POST)
+    @ResponseBody
+    public void addMeetingWhz(@RequestParam(name = "m_uuid",required = false) String m_uuid,
+                              @RequestParam(name = "m_name",required = false) String m_name,
+                              @RequestParam(name = "m_content",required = false) String m_content,
+                              @RequestParam(name = "m_person",required = false) String m_person,
+                              @RequestParam(name = "m_type",required = false) String m_type,
+                              @RequestParam(name = "m_meetingid",required = false) String m_meetingid,
+                              @RequestParam(name = "m_meetingurl",required = false) String m_meetingurl,
+                              @RequestParam(name = "m_createtime") Date m_createtime,
+                              @RequestParam(name = "m_meetingtime") Date m_meetingtime,
+                              @RequestParam(name = "m_details",required = false) String m_details
+    ){
+        MeetingPojo mp = new MeetingPojo();
+        mp.setM_uuid(m_uuid);
+        mp.setM_name(m_name);
+        mp.setM_content(m_content);
+        mp.setM_person(m_person);
+        if(!m_type.equals("")){
+            mp.setM_type(Integer.parseInt(m_type));
+        }
+        mp.setM_meetingid(m_meetingid);
+        mp.setM_meetingurl(m_meetingurl);
+        mp.setM_details(m_details);
+        mp.setM_createtime(m_createtime);
+        mp.setM_meetingtime(m_meetingtime);
+        meetingService.addMeetingWhz(mp);
     }
 
     //删除多个信息（郑文宇）
