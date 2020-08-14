@@ -76,21 +76,23 @@ function select(){
                     title: '操作',
                     align: 'center',
                     valign: 'middle',
-                    width: '10%',
+                    width: '15%',
                     // visible: false,
+                    //胡佳杰调整了三个标志间距
                     formatter: function (value, row, index) {
                         // var sid_code = base64encode(row.sid + '');   //  sid 加密处理
                         // alert(sid_code);
                         return '<a href="#">' +
-                            '<a href="javascript:void(0)" title="显示" data-toggle="modal" data-target="#showModal">' +
+                            '<a href="javascript:void(0)" title="显示" data-toggle="modal" data-target="#showModal" style="display: inline-block;margin-right: 25px;">' +
                             '<i class="glyphicon glyphicon-eye-open"></i> ' +
-                            '<a href="#editProject" data-toggle="modal" title="修改">' +
+                            '<a href="#editProject" data-toggle="modal" title="修改" style="display: inline-block;margin-right: 25px;">' +
                             '<i class="glyphicon glyphicon-pencil"></i> ' +
                             '</a>'+
                             '<a href="javascript:void(0)" title="删除">' +
                             '<i class="glyphicon glyphicon-trash text-danger"></i> ' +
                             '</a>';
                     },
+
                     events: {
 
                     'click a[title=显示]': function (e, value, row, index) {
@@ -165,6 +167,7 @@ function select(){
     });
 
 }
+
 $("#buttonadd").click(function(){
     $("#Modal-tp-add").modal('show')
     $("#sava-add-btn").on("click", function() {
@@ -256,7 +259,8 @@ $("#sava-edit-btn").on("click", function() {
         url : "/meet/editInfo",
         data : data,
         success : function(data) {
-
+            //showConfirm("success","执行成功！",false,false);
+            //swal("","修改成功","success");
             alert('修改成功！');
 
             location.reload();

@@ -7,45 +7,88 @@
     <!--semantic-ui-->
     <link href="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
 </head>
+
+<style type="text/css">
+    .logincontainer{
+        height: 100%;
+        position: relative;
+        opacity: 1%;
+        /*background: #3dc7ab;*/
+        /*overflow: hidden;*/
+    }
+    .loginstyle_top{
+        opacity: 30%;
+        position: relative;
+        height: auto;
+
+        /*overflow-x: hidden;
+        overflow-y: auto;*/
+    }
+    .loginstyle_bottom{
+        opacity: 30%;
+        position: relative;
+        height: 80%;
+        /*overflow-x: hidden;
+        overflow-y: auto;*/
+    }
+    .loginimage{
+        position: absolute;
+        top:  20%;
+        left: 10%;
+        width: 20%;
+    }
+    .loginsegment{
+        /*background-color: #00B83F;*/
+        position: absolute;
+        top:  20%;
+        left: 35%;
+        width: 30%;
+        min-width: 150px;
+
+    }
+</style>
 <body>
 
-<!--主容器-->
-<div class="ui container">
+<div class="logincontainer" >
 
-    <div class="ui segment">
-
-        <div style="text-align: center">
-            <h1 class="header">登录</h1>
+    <div class="ui segment loginstyle_top">
+        <!--胡佳杰把登录标题改为技术分享发布系统，将登录表从页面顶部调整到页面中部-->
+        <div style="text-align: left">
+            <h1 class="header" style="font-family: 华文楷体">技术分享信息发布系统</h1>
         </div>
+    </div>
+    <div class="loginstyle_bottom">
 
-        <div class="ui placeholder segment">
+        <div class="ui placeholder segment loginsegment">
+            <div style="text-align: center">
+                <h1 class="header" style="font-family: 'Times New Roman'">系统登录</h1>
+                <h3  style="font-family: 华文楷体"> </h3>
+            </div>
             <div class="ui column very relaxed stackable grid">
                 <div class="column">
                     <div class="ui form">
                         <form th:action="@{/tologin}" method="post">
                             <div class="field">
-                                <label>Username</label>
+
                                 <div class="ui left icon input">
                                     <input type="text" placeholder="Username" name="username">
                                     <i class="user icon"></i>
                                 </div>
                             </div>
                             <div class="field">
-                                <label>Password</label>
+
                                 <div class="ui left icon input">
-                                    <input type="password" name="password">
+                                    <input type="password" placeholder="Password" name="password">
                                     <i class="lock icon"></i>
                                 </div>
                             </div>
-                            <input type="submit" class="ui blue submit button"/>
+                            <input type="submit" class="ui blue submit button" value="登录"/>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
 
 </div>
 
