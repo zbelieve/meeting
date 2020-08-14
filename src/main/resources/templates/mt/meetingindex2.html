@@ -24,6 +24,13 @@
         #ietable2 th {
             background: #efefef;
         }
+
+        .textarea_overflow{
+            overflow: auto;
+            height: 90px;
+            display: inline-block;
+            resize:vertical;
+        }
     </style>
 </head>
 <body class="gray-bg" onload="select();">
@@ -76,15 +83,14 @@
                                             <input type="text"  class="form-control" id="modal_m_content" disabled="disabled">
                                         </div>
                                     </div>
+                                    <!--胡佳杰修改  信息分享人 会议类型放在一行-->
                                     <div class="form-group">
                                         <label  class="col-sm-2 control-label">信息分享人：</label><div id="email"></div>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-9" style="width: 29%">
                                             <input type="text" class="form-control" id="modal_m_person" disabled="disabled" >
                                         </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label  class="col-sm-2 control-label">会议类型：</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-9" style="width: 29%">
                                             <input type="text" class="form-control" id="modal_m_typeStr" disabled="disabled" >
                                         </div>
                                     </div>
@@ -100,22 +106,22 @@
                                             <input type="text" class="form-control" id="modal_m_meetingurl" disabled="disabled">
                                         </div>
                                     </div>
+                                    <!--胡佳杰修改  textarea范围变大，能且只能垂直方向拉伸-->
                                     <div class="form-group">
                                         <label  class="col-sm-2 control-label">会议详情：</label>
                                         <div class="col-sm-9">
                                             <!--<input type="text" class="form-control" id="modal_m_details" disabled="disabled">-->
-                                            <textarea type="text" class="form-control" id="modal_m_details" disabled="disabled"></textarea>
+                                            <textarea type="text" class="form-control textarea_overflow" id="modal_m_details" disabled="disabled"></textarea>
                                         </div>
                                     </div>
+                                    <!--胡佳杰修改  会议时间 创建信息时间放在一行-->
                                     <div class="form-group">
                                         <label  class="col-sm-2 control-label">会议时间：</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-9" style="width: 29%">
                                             <input type="text" name="timeSet" class="form-control" id="modal_m_meetingtime" disabled="disabled">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label  class="col-sm-2 control-label">创建信息时间：</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-9" style="width: 29%">
                                             <input type="text" name="timeSet" class="form-control" id="modal_m_createtime" disabled="disabled" >
                                         </div>
                                     </div>
