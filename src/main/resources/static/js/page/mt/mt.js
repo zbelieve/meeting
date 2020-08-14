@@ -167,7 +167,7 @@ function select(){
     });
 
 }
-
+/**/
 $("#buttonadd").click(function(){
     $("#Modal-tp-add").modal('show')
     $("#sava-add-btn").on("click", function() {
