@@ -254,6 +254,7 @@ $("#sava-edit-btn").on("click", function() {
         m_meetingtime : document.getElementById("modal_m_meetingTime").value,
         m_createtime : document.getElementById("modal_m_createTime").value
     }
+    // alert(JSON.stringify(data))
     $.ajax({
         type : "POST",
         url : "/meet/editInfo",
@@ -277,6 +278,6 @@ $("input[name='timeSet']").datetimepicker({
     minView : "day", //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
     language : 'zh-CN', // 语言
     autoclose : true, //  true:选择时间后窗口自动关闭
-    format : 'yyyy-mm-dd hh:00:00', // 文本框时间格式，设置为0
+    format : 'yyyy-mm-dd hh:ii:ss', // 文本框时间格式，设置为0
     todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
 })

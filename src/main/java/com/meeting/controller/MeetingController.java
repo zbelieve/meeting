@@ -31,7 +31,8 @@ public class MeetingController {
     @ResponseBody
     public JSONObject selectAll(){
         List<MeetingPojo> MeetingPojos = meetingService.selectAll();
-        System.out.println(MeetingPojos.toString());
+        System.out.println(MeetingPojos.get(0).getM_name());
+        System.out.println(MeetingPojos.get(0).getM_createtime());
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("MeetingList",MeetingPojos);
         return jsonObject;
@@ -104,7 +105,7 @@ public class MeetingController {
     //（陶鹏）
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
